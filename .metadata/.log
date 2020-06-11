@@ -346,3 +346,244 @@ java.net.ConnectException: Connection timed out: connect
 	at de.fu_berlin.inf.dpp.StartupSaros$1.run(StartupSaros.java:113)
 	at de.fu_berlin.inf.dpp.util.ThreadUtils$1.run(ThreadUtils.java:38)
 	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.launchbar.core 2 0 2020-06-10 17:08:23.593
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2020-06-10 17:08:25.594
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2020-06-10 17:08:25.598
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.core.jobs 4 2 2020-06-10 17:37:43.746
+!MESSAGE Unhandled error
+!STACK 0
+java.lang.OutOfMemoryError: Java heap space
+	at java.util.HashMap.newNode(HashMap.java:1742)
+	at java.util.HashMap.putVal(HashMap.java:630)
+	at java.util.HashMap.put(HashMap.java:611)
+	at java.util.HashSet.add(HashSet.java:219)
+	at org.eclipse.core.internal.jobs.JobManager.changeState(JobManager.java:455)
+	at org.eclipse.core.internal.jobs.JobManager.nextJob(JobManager.java:1129)
+	at org.eclipse.core.internal.jobs.JobManager.startJob(JobManager.java:1603)
+	at org.eclipse.core.internal.jobs.WorkerPool.startJob(WorkerPool.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:52)
+
+!ENTRY org.eclipse.core.jobs 4 2 2020-06-10 17:37:45.750
+!MESSAGE An internal error occurred during: "Retrieving archetypes:".
+!STACK 0
+java.lang.OutOfMemoryError: Java heap space
+	at org.apache.lucene.index.TermBuffer.toTerm(TermBuffer.java:122)
+	at org.apache.lucene.index.SegmentTermEnum.term(SegmentTermEnum.java:167)
+	at org.apache.lucene.index.TermInfosReader.get(TermInfosReader.java:251)
+	at org.apache.lucene.index.TermInfosReader.get(TermInfosReader.java:218)
+	at org.apache.lucene.index.SegmentTermDocs.seek(SegmentTermDocs.java:55)
+	at org.apache.lucene.index.MultiSegmentReader$MultiTermDocs.termDocs(MultiSegmentReader.java:608)
+	at org.apache.lucene.index.MultiSegmentReader$MultiTermDocs.next(MultiSegmentReader.java:559)
+	at org.apache.lucene.search.FieldCacheImpl$10.createValue(FieldCacheImpl.java:384)
+	at org.apache.lucene.search.FieldCacheImpl$Cache.get(FieldCacheImpl.java:71)
+	at org.apache.lucene.search.FieldCacheImpl.getStringIndex(FieldCacheImpl.java:351)
+	at org.apache.lucene.search.FieldSortedHitQueue.comparatorString(FieldSortedHitQueue.java:415)
+	at org.apache.lucene.search.FieldSortedHitQueue$1.createValue(FieldSortedHitQueue.java:206)
+	at org.apache.lucene.search.FieldCacheImpl$Cache.get(FieldCacheImpl.java:71)
+	at org.apache.lucene.search.FieldSortedHitQueue.getCachedComparator(FieldSortedHitQueue.java:167)
+	at org.apache.lucene.search.FieldSortedHitQueue.<init>(FieldSortedHitQueue.java:55)
+	at org.apache.lucene.search.TopFieldDocCollector.<init>(TopFieldDocCollector.java:43)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:121)
+	at org.apache.lucene.search.Hits.getMoreDocs(Hits.java:113)
+	at org.apache.lucene.search.Hits.<init>(Hits.java:90)
+	at org.apache.lucene.search.Searcher.search(Searcher.java:61)
+	at org.apache.maven.index.DefaultSearchEngine.searchFlat(DefaultSearchEngine.java:191)
+	at org.apache.maven.index.DefaultSearchEngine.searchFlatPaged(DefaultSearchEngine.java:111)
+	at org.apache.maven.index.DefaultSearchEngine.searchFlatPaged(DefaultSearchEngine.java:89)
+	at org.apache.maven.index.DefaultNexusIndexer.searchFlat(DefaultNexusIndexer.java:404)
+	at org.apache.maven.index.archetype.NexusArchetypeDataSource.getArchetypeCatalog(NexusArchetypeDataSource.java:67)
+	at org.eclipse.m2e.core.internal.archetype.ArchetypeCatalogFactory$NexusIndexerCatalogFactory.getArchetypeCatalog(ArchetypeCatalogFactory.java:93)
+	at org.eclipse.m2e.core.ui.internal.wizards.MavenProjectWizardArchetypePage.getArchetypesForCatalog(MavenProjectWizardArchetypePage.java:567)
+	at org.eclipse.m2e.core.ui.internal.wizards.MavenProjectWizardArchetypePage.getAllArchetypes(MavenProjectWizardArchetypePage.java:597)
+	at org.eclipse.m2e.core.ui.internal.wizards.MavenProjectWizardArchetypePage.getArchetypesForCatalog(MavenProjectWizardArchetypePage.java:562)
+	at org.eclipse.m2e.core.ui.internal.wizards.MavenProjectWizardArchetypePage$RetrievingArchetypesJob.run(MavenProjectWizardArchetypePage.java:1097)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.eclipse.ui 4 0 2020-06-10 17:39:13.215
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.OutOfMemoryError: Java heap space
+	at java.util.HashMap.resize(HashMap.java:703)
+	at java.util.HashMap.putVal(HashMap.java:628)
+	at java.util.HashMap.put(HashMap.java:611)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.updateActiveShell(WorkbenchSourceProvider.java:890)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.getCurrentState(WorkbenchSourceProvider.java:115)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.lambda$2(WorkbenchSourceProvider.java:668)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider$$Lambda$119/2080672560.handleEvent(Unknown Source)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.filterEvent(Display.java:1271)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1078)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1103)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1088)
+	at org.eclipse.swt.widgets.Decorations.WM_ACTIVATE(Decorations.java:1698)
+	at org.eclipse.swt.widgets.Shell.WM_ACTIVATE(Shell.java:2277)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4840)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:359)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1657)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2199)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5178)
+	at org.eclipse.swt.internal.win32.OS.PeekMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.PeekMessage(OS.java:3152)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3812)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:818)
+	at org.eclipse.jface.window.Window.open(Window.java:794)
+	at org.eclipse.ui.actions.NewProjectAction.run(NewProjectAction.java:115)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:473)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:565)
+	at org.eclipse.jface.action.ActionContributionItem.lambda$4(ActionContributionItem.java:397)
+	at org.eclipse.jface.action.ActionContributionItem$$Lambda$240/1737127049.handleEvent(Unknown Source)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4428)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+!SESSION 2020-06-10 17:39:19.098 -----------------------------------------------
+eclipse.buildId=4.7.2.M20171130-0510
+java.version=1.8.0_131
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2020-06-10 17:39:47.975
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2020-06-10 17:39:48.112
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2020-06-10 17:39:48.239
+!MESSAGE Installing common if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2020-06-10 17:39:48.431
+!MESSAGE Installedcommon
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-06-10 17:39:49.528
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\zacha'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2020-06-10 17:39:51.271
+!MESSAGE Installing cpp if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2020-06-10 17:39:51.496
+!MESSAGE Installedcpp
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 17 2020-06-10 17:39:51.696
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1 path $. ; version: 2.0.6.v20170906-1226
+!STACK 0
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:224)
+	at com.google.gson.Gson.fromJson(Gson.java:887)
+	at com.google.gson.Gson.fromJson(Gson.java:852)
+	at com.google.gson.Gson.fromJson(Gson.java:801)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:91)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:66)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:124)
+	at com.google.common.util.concurrent.AbstractIdleService$DelegateService$1.run(AbstractIdleService.java:62)
+	at com.google.common.util.concurrent.Callables$4.run(Callables.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:213)
+	... 9 more
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2020-06-10 17:39:52.478
+!MESSAGE Updating projects
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2020-06-10 17:39:52.595
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2020-06-10 17:39:53.040
+!MESSAGE Installedjava
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2020-06-10 17:39:53.050
+!MESSAGE Updating projects
+
+!ENTRY de.fu_berlin.inf.dpp 4 0 2020-06-10 17:39:56.474
+!MESSAGE error sending STUN request (StunServiceImpl.java:263)
+!STACK 0
+java.net.SocketException: Network is unreachable: Datagram send failed
+	at java.net.DualStackPlainDatagramSocketImpl.socketSend(Native Method)
+	at java.net.DualStackPlainDatagramSocketImpl.send(DualStackPlainDatagramSocketImpl.java:136)
+	at java.net.DatagramSocket.send(DatagramSocket.java:693)
+	at de.fu_berlin.inf.dpp.net.stun.internal.StunServiceImpl$StunDiscovery$1.run(StunServiceImpl.java:255)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2020-06-10 17:40:06.475
+!MESSAGE received no response from STUN server stunserver.org/67.227.226.240:3478 at local address /192.168.0.113:0 (StunServiceImpl.java:420)
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2020-06-10 17:40:06.484
+!MESSAGE received no response from STUN server stunserver.org/67.227.226.240:3478 at local address /172.17.122.145:0 (StunServiceImpl.java:420)
+
+!ENTRY org.eclipse.launchbar.core 2 0 2020-06-10 17:40:10.918
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2020-06-10 17:40:10.924
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2020-06-10 17:40:10.929
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY de.fu_berlin.inf.dpp 4 0 2020-06-10 17:40:16.334
+!MESSAGE  new connection state == ERROR (XMPPConnectionService.java:400)
+!STACK 0
+gmail.com:5222 Exception: XMPPError connecting to gmail.com:5222.; : remote-server-error(502)
+  -- caused by: XMPPError connecting to gmail.com:5222.: remote-server-error(502) XMPPError connecting to gmail.com:5222.
+  -- caused by: java.net.ConnectException: Connection timed out: connect
+	at org.jivesoftware.smack.XMPPConnection.connectUsingConfiguration(XMPPConnection.java:592)
+	at org.jivesoftware.smack.XMPPConnection.connect(XMPPConnection.java:1010)
+	at de.fu_berlin.inf.dpp.net.xmpp.XMPPConnectionService.connect(XMPPConnectionService.java:268)
+	at de.fu_berlin.inf.dpp.communication.connection.ConnectionHandler.connectXMPPInternal(ConnectionHandler.java:332)
+	at de.fu_berlin.inf.dpp.communication.connection.ConnectionHandler.connect(ConnectionHandler.java:190)
+	at de.fu_berlin.inf.dpp.StartupSaros$1.run(StartupSaros.java:113)
+	at de.fu_berlin.inf.dpp.util.ThreadUtils$1.run(ThreadUtils.java:38)
+	at java.lang.Thread.run(Thread.java:748)
+Nested Exception: 
+XMPPError connecting to gmail.com:5222.: remote-server-error(502) XMPPError connecting to gmail.com:5222.
+  -- caused by: java.net.ConnectException: Connection timed out: connect
+	at org.jivesoftware.smack.XMPPConnection.connectUsingConfiguration(XMPPConnection.java:565)
+	at org.jivesoftware.smack.XMPPConnection.connect(XMPPConnection.java:1010)
+	at de.fu_berlin.inf.dpp.net.xmpp.XMPPConnectionService.connect(XMPPConnectionService.java:268)
+	at de.fu_berlin.inf.dpp.communication.connection.ConnectionHandler.connectXMPPInternal(ConnectionHandler.java:332)
+	at de.fu_berlin.inf.dpp.communication.connection.ConnectionHandler.connect(ConnectionHandler.java:190)
+	at de.fu_berlin.inf.dpp.StartupSaros$1.run(StartupSaros.java:113)
+	at de.fu_berlin.inf.dpp.util.ThreadUtils$1.run(ThreadUtils.java:38)
+	at java.lang.Thread.run(Thread.java:748)
+Nested Exception: 
+java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at org.jivesoftware.smack.proxy.DirectSocketFactory.createSocket(DirectSocketFactory.java:45)
+	at org.jivesoftware.smack.XMPPConnection.connectUsingConfiguration(XMPPConnection.java:557)
+	at org.jivesoftware.smack.XMPPConnection.connect(XMPPConnection.java:1010)
+	at de.fu_berlin.inf.dpp.net.xmpp.XMPPConnectionService.connect(XMPPConnectionService.java:268)
+	at de.fu_berlin.inf.dpp.communication.connection.ConnectionHandler.connectXMPPInternal(ConnectionHandler.java:332)
+	at de.fu_berlin.inf.dpp.communication.connection.ConnectionHandler.connect(ConnectionHandler.java:190)
+	at de.fu_berlin.inf.dpp.StartupSaros$1.run(StartupSaros.java:113)
+	at de.fu_berlin.inf.dpp.util.ThreadUtils$1.run(ThreadUtils.java:38)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2020-06-10 17:42:44.352
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2020-06-10 17:42:44.368
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2020-06-10 17:50:26.689
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2020-06-10 17:50:26.721
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
