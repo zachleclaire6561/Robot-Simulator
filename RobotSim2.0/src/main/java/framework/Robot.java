@@ -1,9 +1,6 @@
 package framework;
 
-import org.dyn4j.dynamics.Body;
-
 import org.dyn4j.dynamics.BodyFixture;
-import org.dyn4j.dynamics.Force;
 import org.dyn4j.dynamics.World;
 import org.dyn4j.geometry.Geometry;
 import org.dyn4j.geometry.MassType;
@@ -16,8 +13,8 @@ import java.awt.geom.Line2D;
 
 public class Robot extends SimulationFrame{
 		
-	private double leftSpeed = 0; 
-	private double rightSpeed = 0;
+	private double forward = 0; 
+	private double turn = 0;
 	private SimulationBody robot;
 	private SimulationBody wallLeft, wallRight, wallBottom, wallTop;
 	
@@ -25,15 +22,13 @@ public class Robot extends SimulationFrame{
 	public Robot() { 
 		super("Robot", Constants.SCALE);
 
-		leftSpeed = 0;
-		rightSpeed = 0;
 	}
 
 	@Override
 	protected void initializeWorld() {
 		this.world.setGravity(World.ZERO_GRAVITY);
 
-		robot = createRobot(1.0, 1.0, 10.0, Color.CYAN);
+		robot = createRobot(1.0, Color.CYAN);
 		
 		SimulationBody wallLeft = new SimulationBody();
 		wallLeft.addFixture(Geometry.createRectangle(1, 15));
@@ -74,60 +69,49 @@ public class Robot extends SimulationFrame{
 	}
 	   	
    	public void updateRobot(double elapsedTime) {
-	   	final double force = 1000 * elapsedTime;
+	   	final double forceForward = Constants.forceFactor * forward * elapsedTime;
+	   	final double forceTurn = Constants.forceFactor * turn * elapsedTime;
 	   	
     	Vector2 worldCenter = robot.getWorldCenter();
 	   	Vector2 direction = new Vector2(robot.getTransform().getRotationAngle() + Math.PI * 0.5);
-    	Vector2 f = new Vector2();
-
-   		switch((int) Math.signum(leftSpeed * rightSpeed)){
-   			case 1:
-   				double direct = Math.signum(leftSpeed);
-
-   				if(rightSpeed > leftSpeed) {	
-   					f = direction.product(direct*force*Math.abs(rightSpeed));
-   				}
-   				else {
-   					f = direction.product(direct*force*Math.abs(leftSpeed));
-   				}
-   				robot.applyTorque(direct * Math.abs(leftSpeed-rightSpeed));
-   				break;
-   				
-   			case 0:
-   				
-   				break;
-   				
-   			case -1:
-   				
-   				break;
-   				
-   			default: 
-   				System.out.println("An error has occured");
-   				break;
-   		}
-   		robot.applyForce(f);
+    	
+    	Vector2 f1 = direction.product(-forward);
+    	Vector2 f2;
+    	if(forward > 0) {
+    		f2 = direction.product(forceTurn * 0.15).right();
+    	}
+    	else {
+    		f2 = direction.product(forceTurn * 0.15).left();
+    	}
+    	Vector2 p2 = worldCenter.sum(direction.product(0.9));
+   		//applying friction
+   		
+   		robot.applyForce(f1);
+   		robot.applyForce(f2, p2);
+	    Vector2 robotVector = robot.getLinearVelocity();
+	    robot.applyForce(robotVector.getNormalized().product(-1*Constants.coefFrictionMove));
+	    robot.applyTorque(-1 * robot.getAngularVelocity() * Constants.coefFrictionTurn);
    	}
 	
-	public void setRobotSpeed(double leftSpeed, double rightSpeed) {
-		this.leftSpeed = leftSpeed;
-		this.rightSpeed = rightSpeed;
-
-		if(leftSpeed > 1) {
-			this.leftSpeed = 1;
+	public void setRobotSpeed(double forward, double turn) {
+		if(forward > 1) {
+			forward = 1;
 		}
-		if(leftSpeed < -1) {
-			this.leftSpeed = -1;
+		if(forward < -1) {
+			forward = -1;
 		}
-		if(rightSpeed > 1) {
-			this.rightSpeed = 1;
+		if(turn > 1) {
+			turn = 1;
 		}
-		if(rightSpeed < -1) {
-			this.rightSpeed = -1;
+		if(turn < -1) {
+			turn = -1;
 		}
+		this.forward = forward;
+		this.turn = turn;
+		
 	}
 	
-	public static SimulationBody createRobot(double turnRadius, double wheelFriction, double robotMass, Color color) {
-		
+	public static SimulationBody createRobot(double wheelFriction, Color color) {
 		SimulationBody robot = new SimulationBody(color);
 		robot.addFixture(Geometry.createRectangle(1.0, 1.25), 0.5, 0.5, 0.3);
 		BodyFixture bfRight0 = robot.addFixture(Geometry.createRectangle(0.1, 0.25));
@@ -143,7 +127,7 @@ public class Robot extends SimulationFrame{
 	}	
 	
 	public Vector2 getRobotLocation() {
-		return robot.getWorldCenter();
+		return robot.getWorldVector(new Vector2(0,0));
 	}
 	
 	public double getGyro() {
@@ -152,5 +136,8 @@ public class Robot extends SimulationFrame{
 		return angle;
 	}
 	
+	public double getUltraSonicDistance() {
+		return 0;
+	}
 	
 }
