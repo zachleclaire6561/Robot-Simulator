@@ -50,8 +50,6 @@ public abstract class SimulationFrame extends JFrame {
 	/** The serial version id */
 	private static final long serialVersionUID = 7659608187025022915L;
 
-
-
 	/** The canvas to draw to */
 	protected final Canvas canvas;
 	
